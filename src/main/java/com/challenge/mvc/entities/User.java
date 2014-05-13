@@ -13,17 +13,13 @@ public class User extends MongoModel {
 
     private String name;
     private String lastname;
-    private List<String> phones;
 
-    public User(String name, String lastname) {
+    private String phone;
+
+    public User(String name, String lastname, String phone) {
         this.name = name;
         this.lastname = lastname;
-    }
-
-    public User(String name, String lastname, List<String> phones) {
-        this.name = name;
-        this.lastname = lastname;
-        this.phones = phones;
+        this.phone = phone;
     }
 
     public User() {
@@ -45,12 +41,12 @@ public class User extends MongoModel {
         this.lastname = lastname;
     }
 
-    public List<String> getPhones() {
-        return phones;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setPhones(List<String> phones) {
-        this.phones = phones;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
 }

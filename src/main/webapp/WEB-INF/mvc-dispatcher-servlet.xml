@@ -19,21 +19,36 @@
         <constructor-arg name="databaseName" value="infonal_challenge" />
     </bean>
 
-    <bean id="userDAO" class="com.challenge.mvc.dao.impl.mongo.UserDAO" init-method="init">
+    <bean id="userDAO" class="com.challenge.mvc.dao.impl.mongo.UserDAO" init-method="init" scope="singleton">
         <property name="mongoTemplate" ref="mongoTemplate" />
     </bean>
 
-    <bean id="userController" class="com.challenge.mvc.controller.UserController">
+    <bean id="userService" class="com.challenge.mvc.services.impl.UserService" scope="singleton">
         <property name="userDAO" ref="userDAO" />
+    </bean>
+
+    <bean id="userController" class="com.challenge.mvc.controller.UserController">
+        <property name="userService" ref="userService" />
     </bean>
 
     <!-- //// -->
 
     <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
 
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/pages/"/>
-        <property name="suffix" value=".jsp"/>
+    <bean id="templateResolver"
+          class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
+        <property name="prefix" value="/WEB-INF/templates/" />
+        <property name="suffix" value=".html" />
+        <property name="templateMode" value="HTML5" />
+    </bean>
+
+    <bean id="templateEngine"
+          class="org.thymeleaf.spring3.SpringTemplateEngine">
+        <property name="templateResolver" ref="templateResolver" />
+    </bean>
+
+    <bean class="org.thymeleaf.spring3.view.ThymeleafViewResolver">
+        <property name="templateEngine" ref="templateEngine" />
     </bean>
 
     <mvc:resources mapping="/public/**" location="/public/" />
