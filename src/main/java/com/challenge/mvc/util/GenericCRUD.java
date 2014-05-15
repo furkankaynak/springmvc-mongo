@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by furkan on 5/13/14.
  */
-public interface GenericCRUD<T extends MongoModel> {
+public interface GenericCRUD<T extends Model> {
 
     public void init();
 

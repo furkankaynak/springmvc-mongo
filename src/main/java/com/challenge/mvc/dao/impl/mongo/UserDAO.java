@@ -3,7 +3,6 @@ package com.challenge.mvc.dao.impl.mongo;
 import com.challenge.mvc.dao.IUserDAO;
 import com.challenge.mvc.entities.User;
 import com.challenge.mvc.util.MongoDaoSupport;
-import com.challenge.mvc.util.MongoModel;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 

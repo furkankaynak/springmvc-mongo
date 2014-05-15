@@ -11,6 +11,7 @@ public class ReCaptchaService implements IReCaptchaService {
 
     private ReCaptchaImpl reCaptcha;
 
+    @Override
     public boolean controlCaptcha(String remoteAddr, String challenge, String capthcaResponse) {
         ReCaptchaResponse reCaptchaResponse = reCaptcha.checkAnswer(remoteAddr, challenge, capthcaResponse);
         return reCaptchaResponse.isValid();

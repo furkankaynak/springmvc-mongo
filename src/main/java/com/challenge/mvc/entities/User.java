@@ -1,18 +1,17 @@
 package com.challenge.mvc.entities;
 
-import com.challenge.mvc.util.MongoModel;
+import com.challenge.mvc.util.Model;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
-import java.util.List;
 
 /**
  * Created by furkan on 5/13/14.
  */
 @Document
-public class User extends MongoModel {
+public class User extends Model {
 
     @NotNull
     private String name;
