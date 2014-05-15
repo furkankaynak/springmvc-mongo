@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 /**
  * Created by furkan on 5/13/14.
  */
-public class MongoModel {
+public class Model {
 
     @Id
     private String id;
