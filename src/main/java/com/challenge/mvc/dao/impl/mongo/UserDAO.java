@@ -27,8 +27,8 @@ public class UserDAO extends MongoDaoSupport implements IUserDAO {
     }
 
     @Override
-    public void delete(final User user) {
-        getMongoTemplate().remove(new Query(Criteria.where("id").is(user.getId())), User.class);
+    public void delete(final String id) {
+        getMongoTemplate().remove(new Query(Criteria.where("id").is(id)), User.class);
     }
 
     @Override

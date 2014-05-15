@@ -3,6 +3,9 @@ package com.challenge.mvc.entities;
 import com.challenge.mvc.util.MongoModel;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.util.List;
 
 /**
@@ -11,12 +14,24 @@ import java.util.List;
 @Document
 public class User extends MongoModel {
 
+    @NotNull
     private String name;
+
+    @NotNull
     private String lastname;
 
+    @Pattern(regexp = "0[0-9]{10}")
+    @Min(11)
     private String phone;
 
     public User(String name, String lastname, String phone) {
+        this.name = name;
+        this.lastname = lastname;
+        this.phone = phone;
+    }
+
+    public User(String id, String name, String lastname, String phone) {
+        super.setId(id);
         this.name = name;
         this.lastname = lastname;
         this.phone = phone;

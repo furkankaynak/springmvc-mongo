@@ -12,7 +12,7 @@ import java.util.List;
 public interface IUserService {
     public void save(final User user);
 
-    public void delete(final User user);
+    public void delete(final String id);
 
     public User findById(final String id);
 
