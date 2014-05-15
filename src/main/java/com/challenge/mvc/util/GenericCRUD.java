@@ -11,9 +11,9 @@ public interface GenericCRUD<T extends MongoModel> {
 
     public void init();
 
-    public void save(final User user);
+    public void save(final T t);
 
-    public void delete(final User user);
+    public void delete(final String id);
 
     public T findById(final String id);
 

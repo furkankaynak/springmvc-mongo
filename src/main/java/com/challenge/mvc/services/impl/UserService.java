@@ -19,8 +19,8 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public void delete(User user) {
-        userDAO.delete(user);
+    public void delete(String id) {
+        userDAO.delete(id);
     }
 
     @Override

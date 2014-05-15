@@ -27,11 +27,23 @@
         <property name="userDAO" ref="userDAO" />
     </bean>
 
+    <bean id="reCapthcaService" class="com.challenge.mvc.services.impl.ReCaptchaService" scope="singleton">
+        <property name="reCaptcha" ref="reCaptcha" />
+    </bean>
+
     <bean id="userController" class="com.challenge.mvc.controller.UserController">
         <property name="userService" ref="userService" />
+        <property name="reCaptchaService" ref="reCapthcaService" />
     </bean>
 
     <!-- //// -->
+
+    <bean id="reCaptcha" class="net.tanesha.recaptcha.ReCaptchaImpl">
+        <property name="privateKey" value="6Lfxk_MSAAAAAO_1Uu6cAbLMvpoiKKs7YsmFrdAa" />
+        <property name="publicKey" value="6Lfxk_MSAAAAAL-NEYxvBYQEwU83RlGFu89Ks_5j" />
+        <property name="includeNoscript" value="false" />
+    </bean>
+
 
     <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
 
