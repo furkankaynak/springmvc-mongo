@@ -14,7 +14,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
-public class UserDAOTests extends AbstractTest {
+public class UserDAOTest extends AbstractTest {
 
     private UserDAO userDAO;
     private MongoTemplate mockMongoTemplate;

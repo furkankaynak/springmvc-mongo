@@ -21,6 +21,11 @@ import java.util.List;
 @RequestMapping("/")
 public class UserController {
 
+    private static final String WRONG_CAPTCHA = "Captcha is wrong!";
+    private static final String USER_SAVED = "User saved";
+    private static final String USER_DELETED = "User deleted";
+    private static final String USER_UPDATED = "User updated";
+
     private IUserService userService;
     private IReCaptchaService reCaptchaService;
 
@@ -40,13 +45,13 @@ public class UserController {
 
         if (!reCaptchaService.controlCaptcha(request.getRemoteAddr(), challenge, capthcaResponse)) {
             response.setStatus(HttpStatus.NOT_ACCEPTABLE.value());
-            return "Captcha is wrong!";
+            return WRONG_CAPTCHA;
         }
 
         userService.save(user);
         response.setStatus(HttpStatus.CREATED.value());
 
-        return "User saved";
+        return USER_SAVED;
     }
 
     @RequestMapping(value="/user/{id}", method = RequestMethod.DELETE)
@@ -57,7 +62,7 @@ public class UserController {
         userService.delete(id);
         response.setStatus(HttpStatus.OK.value());
 
-        return "User Deleted";
+        return USER_DELETED;
     }
 
     @RequestMapping(value="/user/update", method = RequestMethod.POST)
@@ -68,7 +73,7 @@ public class UserController {
         userService.save(user);
         response.setStatus(HttpStatus.OK.value());
 
-        return "User saved";
+        return USER_UPDATED;
     }
 
     public void setUserService(IUserService userService) {
