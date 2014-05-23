@@ -11,7 +11,7 @@ public interface GenericCRUD<T extends Model> {
 
     public void init();
 
-    public void save(final User user);
+    public void save(final T t);
 
     public void delete(final String id);
 
