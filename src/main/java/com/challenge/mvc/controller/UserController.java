@@ -71,16 +71,8 @@ public class UserController {
         return "User saved";
     }
 
-    public IUserService getUserService() {
-        return userService;
-    }
-
     public void setUserService(IUserService userService) {
         this.userService = userService;
-    }
-
-    public IReCaptchaService getReCaptchaService() {
-        return reCaptchaService;
     }
 
     public void setReCaptchaService(IReCaptchaService reCaptchaService) {

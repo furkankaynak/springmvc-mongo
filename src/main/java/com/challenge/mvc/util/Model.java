@@ -6,9 +6,15 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 
 /**
  * Created by furkan on 5/13/14.
+ *
+ * This method is a base class for DB models.
  */
 public class Model {
 
+    /**
+     * This variable is id of the User and identify for user.
+     *
+     */
     @Id
     private String id;
 
